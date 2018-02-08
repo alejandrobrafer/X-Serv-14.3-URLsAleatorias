@@ -28,13 +28,13 @@ mySocket.listen(5)
 while True:
     print('Waiting for connections')
     num = random.randint(0,1000000)
-    print(num)
     (recvSocket, address) = mySocket.accept()
     print('HTTP request received:')
     print(recvSocket.recv(1024))
-    recvSocket.send(b"HTTP/1.1 200 OK\r\n\r\n" +
-					b"<html><body><h1>Hola!</h1>" +
-					b"<A HREF=http://localhost:1234/"str(num)">Dame Otra</A>" +
-					b"</body></html>" +
-					b"\r\n")
+    recvSocket.send(bytes("HTTP/1.1 200 OK\r\n\r\n" +
+					"<html><body><h1>Hola." +
+					"<a href='//localhost:1234/" + str(num) + 
+					"'>Dame Otra</a></h1>" +
+					"</body></html>" +
+					"\r\n", 'utf-8'))
 recvSocket.close()
