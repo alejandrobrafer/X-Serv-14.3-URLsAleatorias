@@ -33,8 +33,7 @@ while True:
     print(recvSocket.recv(1024))
     recvSocket.send(bytes("HTTP/1.1 200 OK\r\n\r\n" +
 					"<html><body><h1>Hola." +
-					"<a href='//localhost:1234/" + str(num) + 
-					"'>Dame Otra</a></h1>" +
+					"<a href='//localhost:1234/" + str(num) + "'>Dame Otra</a></h1>" +
 					"</body></html>" +
 					"\r\n", 'utf-8'))
 recvSocket.close()
